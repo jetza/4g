@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Oprema_za_mob_telefone.Models.KategorijeViewModels.KategorijaViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Lista kategorija</h2>
+<p>
+    <a asp-action="kreiraj">Kreiraj novu</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Naziv)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Naziv)
+                </td>
+                <td>
+                    @Html.ActionLink("Izmeni", "izmeni", new { id=item.Id }) |
+                    @Html.ActionLink("Izbriši", "izbrisi", new { id=item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
