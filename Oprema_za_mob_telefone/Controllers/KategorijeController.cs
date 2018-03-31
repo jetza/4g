@@ -17,7 +17,7 @@ namespace Oprema_za_mob_telefone.Controllers
         public KategorijeController(ApplicationDbContext dbContext)
         {
             this.dbContext = dbContext; // Neka izmjena 1
-            // Neka izmjena 2
+            // Neka izmjena 23
         }
 
         public IActionResult Index()
