@@ -15,7 +15,7 @@ namespace Oprema_za_mob_telefone.Models.ProizvodiViewModels
         public int KategorijaId { get; set; }
         public string Opis { get; set; }
         public string Slika { get; set; }
-
+        public decimal Cena { get; set; }
         public IEnumerable<LookupItemViewModel> Kategorije { get; set; }
     }
 }

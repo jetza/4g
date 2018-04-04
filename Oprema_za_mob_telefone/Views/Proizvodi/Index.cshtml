@@ -15,6 +15,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.NazivKategorije)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cena)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -28,6 +31,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.NazivKategorije)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+
             <td>
                 @Html.ActionLink("Izmeni", "izmeni", new { id = item.Id }) |
                 @Html.ActionLink("Izbriši", "izbrisi", new { id = item.Id })

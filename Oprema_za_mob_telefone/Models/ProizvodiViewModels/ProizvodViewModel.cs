@@ -12,6 +12,6 @@ namespace Oprema_za_mob_telefone.Models.ProizvodiViewModels
         public string Naziv { get; set; }
         [Display(Name = "Kategorija")]
         public string NazivKategorije { get; set; }
-
+        public decimal Cena { get; set; }
     }
 }

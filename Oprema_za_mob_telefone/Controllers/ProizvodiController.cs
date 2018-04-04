@@ -32,7 +32,8 @@ namespace Oprema_za_mob_telefone.Controllers
             {
                 Id = proizvod.Id,
                 Naziv = proizvod.Naziv,
-                NazivKategorije = proizvod.Kategorija.Naziv
+                NazivKategorije = proizvod.Kategorija.Naziv,
+                Cena = proizvod.Cena
             });
 
             return View(model);
@@ -61,7 +62,8 @@ namespace Oprema_za_mob_telefone.Controllers
                 Naziv = model.Naziv,
                 Kategorija = this.dbContext.Kategorije.Find(model.KategorijaId),
                 Opis = model.Opis,
-                Slika = model.Slika
+                Slika = model.Slika,
+                Cena = model.Cena
             };
             this.dbContext.Proizvodi.Add(proizvod); //ubacuje u bazu
 
@@ -85,7 +87,8 @@ namespace Oprema_za_mob_telefone.Controllers
                 KategorijaId = proizvod.Kategorija.Id,
                 Opis = proizvod.Opis,
                 Slika = proizvod.Slika,
-                Kategorije = GetKategorijeLookup()     
+                Kategorije = GetKategorijeLookup(),
+                Cena = proizvod.Cena
             };
 
             return View(model);
@@ -109,6 +112,7 @@ namespace Oprema_za_mob_telefone.Controllers
             proizvod.Kategorija = this.dbContext.Kategorije.Find(model.KategorijaId);
             proizvod.Opis = model.Opis;
             proizvod.Slika = model.Slika;
+            proizvod.Cena = model.Cena;
 
             this.dbContext.SaveChanges(); //prihvatamo izmene u dbcontextu
 

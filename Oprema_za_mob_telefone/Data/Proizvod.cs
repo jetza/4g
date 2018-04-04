@@ -11,6 +11,7 @@ namespace Oprema_za_mob_telefone.Data
         public string Naziv { get; set; }
         public Kategorija Kategorija { get; set; }
         public string Opis { get; set; }
-        public string Slika { get; set; }
+        public string Slika { get; set; }       
+        public decimal Cena { get; set; }
     }
 }
