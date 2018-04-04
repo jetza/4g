@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Oprema_za_mob_telefone.Models.ProizvodiViewModels.ProizvodViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Lista proizvoda</h2>
+<p>
+    <a asp-action="kreiraj">Kreiraj novi</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Naziv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NazivKategorije)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NazivKategorije)
+            </td>
+            <td>
+                @Html.ActionLink("Izmeni", "izmeni", new { id = item.Id }) |
+                @Html.ActionLink("Izbriši", "izbrisi", new { id = item.Id })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
