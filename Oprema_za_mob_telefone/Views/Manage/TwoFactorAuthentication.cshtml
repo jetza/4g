@@ -1,6 +1,6 @@
-@model TwoFactorAuthenticationViewModel
+﻿@model TwoFactorAuthenticationViewModel
 @{
-    ViewData["Title"] = "Two-factor authentication";
+    ViewData["Title"] = "Dvoslojna autentifikacija";
     ViewData.AddActivePage(ManageNavPages.TwoFactorAuthentication);
 }
 
@@ -33,15 +33,15 @@
     <a asp-action="GenerateRecoveryCodes" class="btn btn-default">Reset recovery codes</a>
 }
 
-<h5>Authenticator app</h5>
+<h5>Aplikacija za autentifikaciju</h5>
 @if (!Model.HasAuthenticator)
 {
-    <a asp-action="EnableAuthenticator" class="btn btn-default">Add authenticator app</a>
+    <a asp-action="EnableAuthenticator" class="btn btn-default">Dodaj aplikaciju za autentifikaciju</a>
 }
 else
 {
-    <a asp-action="EnableAuthenticator" class="btn btn-default">Configure authenticator app</a>
-    <a asp-action="ResetAuthenticatorWarning" class="btn btn-default">Reset authenticator key</a>
+    <a asp-action="EnableAuthenticator" class="btn btn-default">Konfiguriši aplikaciju za autentifikaciju</a>
+    <a asp-action="ResetAuthenticatorWarning" class="btn btn-default">Resetuj ključ za autentifikaciju</a>
 }
 
 @section Scripts {

@@ -20,8 +20,7 @@ namespace Oprema_za_mob_telefone.Controllers
 
         public ProizvodiController(ApplicationDbContext dbContext)
         {
-            this.dbContext = dbContext; // Neka izmjena 1
-            // Neka izmjena 23
+            this.dbContext = dbContext;
         }
 
         public IActionResult Index()

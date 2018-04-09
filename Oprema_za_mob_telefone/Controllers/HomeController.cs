@@ -17,8 +17,7 @@ namespace Oprema_za_mob_telefone.Controllers
 
         public HomeController(ApplicationDbContext dbContext)
         {
-            this.dbContext = dbContext; // Neka izmjena 1
-            // Neka izmjena 23
+            this.dbContext = dbContext; 
         }
         public IActionResult Index()
         {
@@ -34,24 +33,14 @@ namespace Oprema_za_mob_telefone.Controllers
                 Slika = proizvod.Slika
             }).ToArray();
 
-
             return View(model);
         }
-
         public IActionResult About()
         {
             ViewData["Message"] = " ";
 
             return View();
         }
-
-        public IActionResult Novosti()
-        {
-            ViewData["Message"] = " ";
-
-            return View();
-        }
-
         public IActionResult Contact()
         {
             ViewData["Message"] = " ";

@@ -9,7 +9,6 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
-
         <dt>
             @Html.DisplayNameFor(model => model.Naziv)
         </dt>
@@ -17,10 +16,11 @@
             @Html.DisplayFor(model => model.Naziv)
         </dd>
     </dl>
-    
+
     <form asp-action="Izbrisi">
         <input asp-for="Id" type="hidden" /> <!--sakriva -->
         <input type="submit" value="Izbriši" class="btn btn-default" /> |
         <a asp-action="Index">Nazad na listu</a>
     </form>
+
 </div>
