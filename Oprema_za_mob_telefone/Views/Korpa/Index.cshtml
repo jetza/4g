@@ -68,12 +68,12 @@ else
 
                 $.post('/Korpa/Sacuvaj/' + id + '?kolicina=' + kolicina)
                     .done(function () {
-                        alert('Kolicina je izmenjena');
+                        toastr.success('Kolicina je izmenjena');
                         izracunaj();
                     })
                     .fail(function (error) {
                         console.log(error);
-                        alert('Greška');
+                        toastr.error('Greška');
                     });
             });
 
@@ -84,12 +84,12 @@ else
                 $.post('/Korpa/Obrisi/' + id)
                     .done(function () {
                         row.remove();
-                        alert('Proizvod je obrisan');
+                        toastr.success('Proizvod je obrisan');
                         izracunaj();
                     })
                     .fail(function (error) {
                         console.log(error);
-                        alert('Greška');
+                        toastr.error('Greška');
                     });
             });
 
