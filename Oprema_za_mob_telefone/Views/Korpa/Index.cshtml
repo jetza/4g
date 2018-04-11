@@ -1,0 +1,95 @@
+﻿@model Oprema_za_mob_telefone.Models.KorpaViewModels.IzabraniProizvodViewModel[]
+@{
+    ViewData["Title"] = "Korpa";
+}
+<h2>@ViewBag.Title</h2>
+<table class="table korpa">
+    <thead>
+        <tr>
+            <th>Proizvod</th>
+            <th class="text-right">Cena</th>
+            <th class="text-right">Količina</th>
+            <th class="text-right">&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var proizvod in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@proizvod.Slika" />
+                    @proizvod.Naziv
+                </td>
+                <td class="text-right">@proizvod.Cena.ToString("#,##0.00") din</td>
+                <td class="text-right">
+                    <input data-cena="@proizvod.Cena" value="@proizvod.Kolicina" type="number" class="form-control text-right" />
+                </td>
+                <td class="text-right">
+                    <button data-id="@proizvod.Id" class="btn btn-success btn-sacuvaj">Sačuvaj</button>
+                    <button data-id="@proizvod.Id" class="btn btn-danger btn-obrisi">Obriši</button>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th  class="text-right">Ukupan iznos: </th>
+            <th id="ukupanIznos" class="text-right"></th>
+        </tr>
+    </tfoot>
+</table>
+
+@section Scripts
+    {
+    <script>
+        $(document).ready(function () {
+            $('.btn-sacuvaj').click(function () {
+                let id = $(this).data('id');
+                let input = $('input', $(this).parent().parent());
+                let kolicina = input.val();
+
+                $.post('/Korpa/Sacuvaj/' + id + '?kolicina=' + kolicina)
+                    .done(function () {
+                        alert('Kolicina je izmenjena');
+                        izracunaj();
+                    })
+                    .fail(function (error) {
+                        console.log(error);                  
+                        alert('Greška');
+                    });
+            });
+
+            $('.btn-obrisi').click(function () {
+                let id = $(this).data('id');
+                let row = $(this).parent().parent();
+
+                $.post('/Korpa/Obrisi/' + id)
+                    .done(function () {
+                        row.remove();
+                        alert('Proizvod je obrisan');
+                        izracunaj();
+                    })
+                    .fail(function (error) {
+                        console.log(error);
+                        alert('Greška');
+                    });
+            });
+
+            function izracunaj() {
+                let ukupanIznos = 0;
+
+                $('.korpa input').each(function () {
+                    let input = $(this);
+                    let kolicina = input.val();
+                    let cena = input.data('cena');
+                    ukupanIznos += kolicina * cena;
+                });
+
+                $('#ukupanIznos').text(ukupanIznos.toLocaleString('sr') + ' din');
+            }
+
+            izracunaj();
+        });
+    </script>
+}

@@ -10,6 +10,23 @@
     padding-right: 15px;
 }
 
+.korpa input {
+    width:70px;
+    display:inline-block;
+}
+.korpa.table > thead > tr > th,
+.korpa.table > tbody > tr > th,
+.korpa.table > tfoot > tr > th,
+.korpa.table > thead > tr > td,
+.korpa.table > tbody > tr > td,
+.korpa.table > tfoot > tr > td {
+    vertical-align: middle;
+}
+
+.korpa img {
+    max-width: 100px;
+    margin-right: 10px;
+}
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
