@@ -98,5 +98,18 @@ namespace Oprema_za_mob_telefone.Controllers
 
             return Ok();// vraca 200
         }
+        public IActionResult Plati()
+        {
+            //preusmeravanje na unos kreditne kartice
+            var korisnik = dbContext.Users.Single(x => x.Email == User.Identity.Name);
+            var izabraniProizvodi = dbContext.IzabraniProizvodi.Include(x => x.Proizvod)
+                .Where(x => x.Korisnik.Id == korisnik.Id)
+                .ToArray();
+
+            dbContext.IzabraniProizvodi.RemoveRange(izabraniProizvodi);
+            dbContext.SaveChanges();
+
+            return View("Placeno");
+        }
     }
 }
