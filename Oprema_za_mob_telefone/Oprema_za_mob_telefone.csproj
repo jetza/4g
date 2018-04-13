@@ -105,7 +105,6 @@
     <None Include="wwwroot\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
     <None Include="wwwroot\fonts\poppins\Poppins-Thin.ttf" />
     <None Include="wwwroot\fonts\poppins\Poppins-ThinItalic.ttf" />
-    <None Include="wwwroot\images\bg-01.jpg" />
     <None Include="wwwroot\images\icons\favicon.ico" />
     <None Include="wwwroot\images\img-01.png" />
     <None Include="wwwroot\js\main.js" />

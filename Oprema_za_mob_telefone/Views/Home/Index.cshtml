@@ -2,7 +2,11 @@
 @{
     ViewData["Title"] = "4G Prodavnica";
 }
-
+<style>
+    body {
+        background-image: url("/images/4g.png");
+    }
+</style>
 <div class="row proizvodi ">
     @for (var i = 0; i < Model.Count(); i++)
     {
@@ -12,7 +16,7 @@
                     @Model[i].Naziv
                 </div>
                 <div class="panel-body">
-                    <img src="@Model[i].Slika" class="img-responsive"/>
+                    <img src="@Model[i].Slika" class="img-responsive" />
                     <p>Cena: @Model[i].Cena din</p>
                 </div>
                 <div class="panel-footer text-center">
@@ -24,7 +28,7 @@
 </div>
 
 @section Scripts
-{
+    {
     <script>
         $(document).ready(function () {
             $('.btn-kupi').click(function () {
@@ -45,4 +49,4 @@
 
         });
     </script>
- }
+}
