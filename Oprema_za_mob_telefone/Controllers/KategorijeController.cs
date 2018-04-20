@@ -32,13 +32,13 @@ namespace Oprema_za_mob_telefone.Controllers
             return View(model);
         }
 
-        [HttpGet]
+        [HttpGet] //uzima
         public IActionResult Kreiraj()
         {
             return View();
         }
 
-        [HttpPost]
+        [HttpPost] //dodaje
         public IActionResult Kreiraj(KreirajKategorijuViewModel model)
         {
             if (!ModelState.IsValid) //proverava da li je ime i uneseno kako treba

@@ -21,7 +21,7 @@ namespace Oprema_za_mob_telefone.Data.Migrations
                 name: "RoleNameIndex",
                 table: "AspNetRoles");
 
-            migrationBuilder.CreateTable(
+            migrationBuilder.CreateTable( //tabela kategorije
                 name: "Kategorije",
                 columns: table => new
                 {
@@ -34,7 +34,7 @@ namespace Oprema_za_mob_telefone.Data.Migrations
                     table.PrimaryKey("PK_Kategorije", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+            migrationBuilder.CreateTable( //tabela proizvodi
                 name: "Proizvodi",
                 columns: table => new
                 {
@@ -56,7 +56,7 @@ namespace Oprema_za_mob_telefone.Data.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateTable(
+            migrationBuilder.CreateTable( //tabela izabrani proizvodi
                 name: "IzabraniProizvodi",
                 columns: table => new
                 {
